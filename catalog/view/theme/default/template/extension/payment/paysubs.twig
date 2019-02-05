@@ -1,0 +1,54 @@
+<form action="https://www.vcs.co.za/vvonline/vcspay.aspx" method="post">
+    <input type="hidden" name="cmd" value="_cart"/>
+    {% set i = 1 %}
+    {% set orderTotal = 0 %}
+    {% for product in products %}
+        {% set thisTotal = product.price*product.quantity %}
+        {% set orderTotal = orderTotal + thisTotal %}
+        <input type="hidden" name="item_name_{{ i }}" value="{{ product.name }}"/>
+        <input type="hidden" name="item_number_{{ i }}" value="{{ product.model }}"/>
+        <input type="hidden" name="amount_{{ i }}" value="{{ product.price }}"/>
+        <input type="hidden" name="quantity_{{ i }}" value="{{ product.quantity }}"/>
+        <input type="hidden" name="weight_{{ i }}" value="{{ product.weight }}"/>
+        {% set j = 1 %}
+        {% for option in product.option %}
+            <input type="hidden" name="on{{ j }}_{{ i }}" value="{{ option.name }}"/>
+            <input type="hidden" name="os{{ j }}_{{ i }}" value="{{ option.value }}"/>
+            {% set j = j + 1 %}
+        {% endfor %}
+        {% set i = i +1 %}
+    {% endfor %}
+    {% if discount_amount_cart %}
+        <input type="hidden" name="discount_amount_cart" value="{{ discount_amount_cart }}"/>
+    {% endif %}
+    <input type="hidden" name="p1" value="{{ paysubs_merchant_id }}"/>
+    <input type="hidden" name="p2" value="{{ custom }}"/>
+    <input type="hidden" name="p3" value="PayGate Online Purchase"/>
+    <input type="hidden" name="p4" value="{{ (orderTotal- discount_amount_cart) |number_format(2, '.', '') }}"/>
+    {% if recur_payment_enabled == 1 %}
+        <input type="hidden" name="p6" value="U" />
+        <input type="hidden" name="p7" value="{{ recur_payment_frequency }}" />
+    {% endif %}
+    <input type="hidden" name="p10" value="{{ cancel_return }}"/>
+    <input type="hidden" name="Budget" value="Y"/>
+    <input type="hidden" name="CardholderEmail" value="{{ email }}"/>
+    <input type="hidden" name="m_1" value="route"/>
+    <input type="hidden" name="m_2" value="payment"/>
+    <input type="hidden" name="m_3" value="paysubs"/>
+    <input type="hidden" name="m_4" value="callback"/>
+    <input type="hidden" name="m_5" value="{{ custom }}"/>
+    <input type="hidden" name="m_6" value=""/>
+    <input type="hidden" name="m_7" value=""/>
+    <input type="hidden" name="m_8" value=""/>
+    <input type="hidden" name="m_9" value=""/>
+    <input type="hidden" name="m_10" value=""/>
+    <input type="hidden" name="URLSProvided" value="Y"/>
+    <input type="hidden" name="DeclinedUrl" value="{{ notify_url }}"/>
+    <input type="hidden" name="ApprovedUrl" value="{{ notify_url }}"/>
+    <div class="buttons">
+        <div class="pull-right">
+            <input type="submit" value="{{ button_confirm }}" id="button-confirm" class="btn btn-primary"
+                   data-loading-text="{{ text_loading }}"/>
+        </div>
+    </div>
+</form>
