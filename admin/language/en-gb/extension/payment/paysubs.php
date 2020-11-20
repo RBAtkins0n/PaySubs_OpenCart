@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2019 PayGate (Pty) Ltd
+ * Copyright (c) 2020 PayGate (Pty) Ltd
  *
  * Author: App Inlet (Pty) Ltd
  *
@@ -9,13 +9,13 @@
  */
 
 // Heading
-$_['heading_title']  = 'PayGate PaySubs Service';
+$_['heading_title']  = 'PayGate';
 $_['text_edit']      = 'Edit PaySubs';
 $_['text_extension'] = 'Extensions';
 // Text
 $_['text_payment']       = 'Payment';
 $_['text_success']       = 'Success: You have modified your PaySubs account details.';
-$_['text_paysubs']       = '<a onclick="window.open(\'https://www.vcs.co.za\');"><img src="view/image/payment/paygate.gif" alt="PaySubs" title="PayGate PaySubs Service" style="border: 1px solid #EEEEEE;" /></a>';
+$_['text_paysubs']       = '<a onclick="window.open(\'https://www.paygate.co.za\');"><img src="view/image/payment/paygate.png" alt="PayGate" title="PayGate" style="border: 1px solid #EEEEEE;" /></a>';
 $_['text_authorization'] = 'Authorization';
 $_['text_sale']          = 'Sale';
 
