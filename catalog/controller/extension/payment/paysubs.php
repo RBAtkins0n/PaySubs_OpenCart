@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2019 PayGate (Pty) Ltd
+ * Copyright (c) 2020 PayGate (Pty) Ltd
  *
  * Author: App Inlet (Pty) Ltd
  * 
@@ -78,9 +78,9 @@ class ControllerExtensionPaymentPaySubs extends Controller
             $data['zip']                 = html_entity_decode( $order_info['payment_postcode'], ENT_QUOTES, 'UTF-8' );
             $data['country']             = $order_info['payment_iso_code_2'];
             $data['email']               = $order_info['email'];
-            $data['return']              = $this->url->link( 'checkout/success' );
-            $data['notify_url']          = $this->url->link( 'extension/payment/paysubs/callback', '', 'SSL' );
-            $data['cancel_return']       = $this->url->link( 'extension/payment/paysubs/callback', '', 'SSL' );
+            $data['return']              = $this->url->link( 'checkout/success' ) . '&gid=' . $this->session->data['order_id'];
+            $data['notify_url']          = $this->url->link( 'extension/payment/paysubs/callback', '', 'SSL' ) . '&gid=' . $this->session->data['order_id'];
+            $data['cancel_return']       = $this->url->link( 'extension/payment/paysubs/callback', '', 'SSL' ) . '&gid=' . $this->session->data['order_id'];
 
             $data['paymentaction'] = 'sale';
 
@@ -106,9 +106,9 @@ class ControllerExtensionPaymentPaySubs extends Controller
             $this->request->post = $this->request->get;
         }
         $this->load->language( 'extension/payment/paysubs' );
-
-        if ( isset( $this->session->data['order_id'] ) ) {
-            $order_id = $this->session->data['order_id'];
+        
+        if ( isset( $_GET['gid'] ) ) {
+            $order_id = filter_input(INPUT_GET, 'gid', FILTER_SANITIZE_STRING);
 
             $this->load->model( 'checkout/order' );
 
