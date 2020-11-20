@@ -1,10 +1,10 @@
 # PaySubs_OpenCart
-## DPO PayGate PaySubs1 (VCS) OpenCart plugin v1.0.0 for OpenCart v3.0.3
+## PayGate PaySubs1 (VCS) OpenCart plugin v1.0.1 for OpenCart v3.0.3.6
 
-This is the DPO PayGate PaySubs (VCS) plugin for OpenCart. Please feel free to contact the DPO PayGate support team at support@paygate.co.za should you require any assistance.
+This is the PayGate PaySubs (VCS) plugin for OpenCart. Please feel free to contact the PayGate support team at support@paygate.co.za should you require any assistance.
 
 ## Installation
-Please navigate to the [releases page](https://github.com/PayGate/PaySubs_OpenCart/releases), download the latest release (v1.0.0) and unzip. You will them be able to follow the integration guide which is included in the zip.
+Please navigate to the [releases page](https://github.com/PayGate/PaySubs_OpenCart/releases), download the latest release (v1.0.1) and unzip. You will then be able to follow the integration guide which is included in the zip.
 
 ## Collaboration
 

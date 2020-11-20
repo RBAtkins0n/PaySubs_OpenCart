@@ -1,14 +1,14 @@
 <?php
 /**
  *
- * PayGate PaySubs Service Opencart Plugin
+ * PayGate Opencart Plugin
  *
  * @author App Inlet (Pty) Ltd
  * @author info@appinlet.com
- * @version 1.0.0
+ * @version 1.0.1
  * @package Opencart
  * @subpackage payment
- * @copyright Copyright (C) 2019 PayGate (Pty) Ltd
+ * @copyright Copyright (C) 2020 PayGate (Pty) Ltd
  */
 
 class ModelExtensionPaymentPaySubs extends Model
@@ -46,7 +46,7 @@ class ModelExtensionPaymentPaySubs extends Model
         if ( $status ) {
             $method_data = array(
                 'code'       => 'paysubs',
-                'title'      => $this->language->get( 'text_title' ),
+                'title'      => $this->language->get( 'text_paygate_checkout' ),
                 'terms'      => '',
                 'sort_order' => $this->config->get( 'payment_paysubs_sort_order' ),
             );
